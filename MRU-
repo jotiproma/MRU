@@ -1,0 +1,18 @@
+pages = [7, 0, 1, 2, 0, 3, 0, 4, 2, 3]
+frame_size = 4
+faults = 0
+frames = []
+for p in pages:
+    if p in frames:
+
+        frames.remove(p)
+        frames.append(p)
+    else:
+        faults += 1
+        if len(frames) < frame_size:
+            frames.append(p)
+        else:
+            frames.pop()
+            frames.append(p)
+    print(p, ":", frames)
+print("Total Page Faults:", faults)
